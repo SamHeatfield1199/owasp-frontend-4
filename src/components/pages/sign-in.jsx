@@ -7,8 +7,6 @@ const SignIn = ({ setAlerts, setAccessToken }) => {
   const [asyncAction] = useAsyncAction();
 
   return (
-  
-    
     <Formik
       initialValues={{ username: 'formik', password: '' }}
       onSubmit={async (values) => {
@@ -22,15 +20,12 @@ const SignIn = ({ setAlerts, setAccessToken }) => {
         const data = await asyncAction(config, setAlerts);
 
         if (data) setAccessToken(data.accessToken);
+        
       }}>
       {({ isSubmitting }) => (
         <Form className="sign-in">
           <h1 className="sign-in__heading">Sign in</h1>
           
-          <div className="sign-in mt-m-1">
-            <span className="label mb-s-1">Login: smth</span>
-            <span className="label mb-s-1"> Password: smth</span>
-          </div>
           <div className="label mb-s-1">Username</div>
           <Input className="sign-in__input input mb-m-1" type="text" name="username" />
 
